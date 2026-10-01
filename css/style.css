@@ -3,17 +3,17 @@
   --bg-surface: #ac9570;
   --text-primary: #2d231e;
   --text-secondary: #605147;
-  --brand-primary: #c86843;
+  --brand-primary: #e9e4e3;
   --brand-secondary: #6b8e7b;
   --brand-accent: #e3a857;
   --border-color: #e8d8c8;
 }
-[data-theme="dark"] {
+body.dark-theme {
   --bg-primary: #12100e;
   --bg-surface: #231d19;
   --text-primary: #fdf6eb;
   --text-secondary: #c2b5a8;
-  --brand-primary: #d97752;
+  --brand-primary: #e9e4e3;
   --brand-secondary: #7ca48f;
   --brand-accent: #e3a857;
   --border-color: #3d322b;
@@ -28,6 +28,7 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-secondary);
   font-family: "Times New Roman", Times, serif;
+  line-height: 1.5;
 }
 button,
 input,
@@ -46,10 +47,11 @@ textarea {
 
 .btn button {
   cursor: pointer;
-  background: none;
+  background: transparent;
   border: none;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
+  color: var(--text-primary);
 }
 
 .btn button:hover {
@@ -58,24 +60,48 @@ textarea {
 
 .btn {
   display: flex;
-  gap: 5rem;
-}
-
-.carrinho {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.carrinho button {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  border: none;
-  background-color: var(--bg-primary);
+  gap: 2rem;
 }
 
 .search-box input {
   padding: 0.5rem;
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
   border-radius: 0.5rem;
   border: none;
+  border: solid 1px;
 }
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.search-box button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: solid 1px;
+  background-color: var(--brand-primary);
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background-color: var(--brand-primary);
+}
+
+.cart,
+.theme {
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--brand-primary);
+}
+
