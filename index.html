@@ -19,7 +19,7 @@
         <img src="assets/icons/logo.png" alt="logo" width="200px" />
       </div>
       <div class="btn">
-        <button data-category="todos">Todos</button>
+        <button data-category="inicio">Início</button>
         <button data-category="croche">Crochê</button>
         <button data-category="bordado">Bordado</button>
         <button data-category="ceramica">Cerâmica</button>
@@ -27,8 +27,10 @@
       </div>
       <div class="nav-actions">
         <div class="search-box">
-          <input type="text" placeholder="Pesquisar título" />
-          <button><i class="fa-solid fa-magnifying-glass"></i></button>
+          <input type="text" id="search-input" placeholder="Pesquisar título" />
+          <button type="button" id="search-btn" aria-label="Pesquisar">
+            <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+          </button>
         </div>
         <button class="cart"><i class="fa-solid fa-cart-shopping"></i></button>
         <button class="theme" id="theme-toggle">
@@ -36,8 +38,21 @@
         </button>
       </div>
     </nav>
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Inspiração feita à mão para criar com paixão.
+          </h1>
+          <p class="hero-description">
+            Descubra métodos detalhados, moldes e guias práticos em PDF para
+            crochê, bordado, cerâmica e papelaria. Dê vida às suas ideias de
+            artesanato.
+          </p>
+        </div>
+      </div>
+    </section>
     <main><section id="products"></section></main>
-
     <footer class="footer">
       <div class="footer-container">
         <p class="footer-about">
