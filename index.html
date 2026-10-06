@@ -1,68 +1,95 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="js/products.js" defer></script>
-    <script src="js/cart.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <title>Ateliê Digital</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Ateliê Digital | E-books de Artesanato</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
-    <nav class="nav">
-      <div class="img-logo">
-        <img src="assets/icons/logo.png" alt="logo" width="200px" />
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+      <div class="container nav-container">
+        <a href="#" class="logo">Ateliê Digital</a>
+
+        <nav class="menu">
+          <ul>
+            <li><a href="#croche">Crochê</a></li>
+            <li><a href="#bordado">Bordado</a></li>
+            <li><a href="#ceramica">Cerâmica</a></li>
+            <li><a href="#papelaria">Papelaria</a></li>
+          </ul>
+
+          <div class="icones-acao">
+            <button id="btn-tema" class="btn-icone" aria-label="Alternar Tema">
+              <i class="fa-regular fa-sun icone-sol"></i>
+              <i class="fa-regular fa-moon icone-lua"></i>
+            </button>
+            <a href="#carrinho" class="btn-icone" aria-label="Ver Carrinho">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+          </div>
+        </nav>
       </div>
-      <div class="btn">
-        <button data-category="inicio">Início</button>
-        <button data-category="croche">Crochê</button>
-        <button data-category="bordado">Bordado</button>
-        <button data-category="ceramica">Cerâmica</button>
-        <button data-category="papelaria">Papelaria</button>
-      </div>
-      <div class="nav-actions">
-        <div class="search-box">
-          <input type="text" id="search-input" placeholder="Pesquisar título" />
-          <button type="button" id="search-btn" aria-label="Pesquisar">
-            <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
-          </button>
-        </div>
-        <button class="cart"><i class="fa-solid fa-cart-shopping"></i></button>
-        <button class="theme" id="theme-toggle">
-          <i class="fa-solid fa-sun"></i>
-        </button>
-      </div>
-    </nav>
-    <section class="hero">
-      <div class="hero-container">
-        <div class="hero-content">
-          <h1 class="hero-title">
-            Inspiração feita à mão para criar com paixão.
-          </h1>
-          <p class="hero-description">
-            Descubra métodos detalhados, moldes e guias práticos em PDF para
-            crochê, bordado, cerâmica e papelaria. Dê vida às suas ideias de
-            artesanato.
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-conteudo">
+          <h1>A arte de criar com as próprias mãos</h1>
+          <p>
+            Descubra técnicas incríveis e crie peças únicas com nossos e-books
+            detalhados de crochê, bordado, cerâmica e papelaria.
           </p>
+          <a href="#vitrine" class="btn-primario">Ver Coleção Completa</a>
         </div>
-      </div>
-    </section>
-    <main><section id="products"></section></main>
-    <footer class="footer">
-      <div class="footer-container">
-        <p class="footer-about">
-          Sua livraria digital de artesanato. Receitas, moldes em PDF e guias
-          práticos para inspirar sua criatividade.
-        </p>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Ateliê Digital — Todos os direitos reservados.</p>
+      </section>
+
+      <section class="categorias container">
+        <div class="card-categoria">
+          <h2>Crochê</h2>
+          <p>Amigurumis e utilitários.</p>
+        </div>
+        <div class="card-categoria">
+          <h2>Bordado</h2>
+          <p>Ponto livre e bastidores.</p>
+        </div>
+        <div class="card-categoria">
+          <h2>Cerâmica</h2>
+          <p>Modelagem fria e pintura.</p>
+        </div>
+        <div class="card-categoria">
+          <h2>Papelaria</h2>
+          <p>Encadernação e cartonagem.</p>
+        </div>
+      </section>
+
+      <section id="vitrine" class="vitrine container">
+        <h2 class="titulo-secao">E-books em Destaque</h2>
+
+        <div id="grid-produtos" class="grid-produtos"></div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="container">
+        <p>&copy; 2026 Ateliê Digital. Feito com carinho.</p>
       </div>
     </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
