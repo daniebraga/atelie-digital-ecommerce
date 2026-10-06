@@ -1,7 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ==========================================================================
+  // 1. SELEÇÃO DE ELEMENTOS DO DOM
+  // ==========================================================================
   const themeToggleButton = document.getElementById("btn-tema");
   const body = document.body;
+  const gridProdutos = document.getElementById("grid-produtos");
+  const heroSection = document.querySelector(".hero");
+  const logoLink = document.querySelector(".logo");
+  const linksNavbar = document.querySelectorAll(".menu ul a");
+  const tituloSecao = document.querySelector(".titulo-secao");
 
+  // Elementos de busca
+  const searchInput =
+    document.getElementById("search-input") ||
+    document.querySelector(".search-box input");
+  const searchBtn =
+    document.getElementById("search-btn") ||
+    document.querySelector(".search-box button");
+
+  // Estado dos filtros ("destaque" é o padrão inicial)
+  let currentCategory = "destaque";
+  let currentSearchQuery = "";
+
+  // ==========================================================================
+  // 2. ALTERNÂNCIA E PERSISTÊNCIA DO DARK MODE
+  // ==========================================================================
   const temaSalvo = localStorage.getItem("tema-atelie");
   if (temaSalvo === "dark") {
     body.classList.add("dark-theme");
@@ -10,17 +33,27 @@ document.addEventListener("DOMContentLoaded", () => {
   if (themeToggleButton) {
     themeToggleButton.addEventListener("click", () => {
       body.classList.toggle("dark-theme");
-      if (body.classList.contains("dark-theme")) {
-        localStorage.setItem("tema-atelie", "dark");
+      const isDark = body.classList.contains("dark-theme");
+      localStorage.setItem("tema-atelie", isDark ? "dark" : "light");
+    });
+  }
+
+  // Helper para destacar visualmente a categoria ativa no menu
+  function atualizarLinkAtivo(categoriaAtiva) {
+    linksNavbar.forEach((link) => {
+      const href = link.getAttribute("href").replace("#", "").toLowerCase();
+      if (href === categoriaAtiva.toLowerCase()) {
+        link.classList.add("ativo");
       } else {
-        localStorage.setItem("tema-atelie", "light");
+        link.classList.remove("ativo");
       }
     });
   }
 
-  const gridProdutos = document.getElementById("grid-produtos");
-
-  function renderizarProdutos(modo = "destaque", categoriaFiltro = "") {
+  // ==========================================================================
+  // 3. RENDERIZAÇÃO DE PRODUTOS
+  // ==========================================================================
+  function renderizarProdutos() {
     if (!gridProdutos) return;
 
     if (typeof products === "undefined") {
@@ -29,29 +62,72 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     gridProdutos.innerHTML = "";
-
     let produtosParaExibir = [];
 
-    if (modo === "destaque") {
-      // Pega apenas os 3 primeiros produtos do seu products.js para a home/logo
-      produtosParaExibir = products.slice(0, 3);
-    } else if (modo === "categoria") {
-      // Filtra todos os produtos correspondentes à categoria clicada no menu
+    // SE HOUVER BUSCA POR TEXTO
+    if (currentSearchQuery !== "") {
+      if (heroSection) heroSection.style.display = "none";
+      if (tituloSecao) tituloSecao.textContent = "Resultados da Pesquisa";
+
+      produtosParaExibir = products.filter((p) => {
+        const titulo = p.title ? p.title.toLowerCase() : "";
+        const descricao = p.description ? p.description.toLowerCase() : "";
+        const categoria = p.category ? p.category.toLowerCase() : "";
+
+        const matchesSearch =
+          titulo.includes(currentSearchQuery) ||
+          descricao.includes(currentSearchQuery) ||
+          categoria.includes(currentSearchQuery);
+
+        const matchesCategory =
+          currentCategory === "destaque" ||
+          currentCategory === "todos" ||
+          categoria === currentCategory.toLowerCase();
+
+        return matchesSearch && matchesCategory;
+      });
+    }
+    // SE ESTIVER EM UMA CATEGORIA ESPECÍFICA (Crochê, Bordado, Cerâmica, Papelaria)
+    else if (currentCategory !== "destaque" && currentCategory !== "todos") {
+      if (heroSection) heroSection.style.display = "none";
+
+      // Atualiza o título da seção com o nome da categoria formatado
+      if (tituloSecao) {
+        tituloSecao.textContent =
+          currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
+      }
+
       produtosParaExibir = products.filter(
-        (p) => p.category === categoriaFiltro,
+        (p) => p.category.toLowerCase() === currentCategory.toLowerCase(),
       );
     }
+    // MODO INICIAL / DESTAQUE (3 primeiros produtos + Hero)
+    else {
+      if (heroSection) heroSection.style.display = "block";
+      if (tituloSecao) tituloSecao.textContent = "E-books em Destaque";
 
+      produtosParaExibir = products.slice(0, 3);
+    }
+
+    // Mensagem se nenhum produto for encontrado
     if (produtosParaExibir.length === 0) {
-      gridProdutos.innerHTML = `<p style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary);">Nenhum e-book encontrado.</p>`;
+      gridProdutos.innerHTML = `
+        <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 3rem 1rem;">
+          <p style="color: var(--text-secondary); font-size: 1.1rem;">Nenhum e-book encontrado. 🧶</p>
+        </div>
+      `;
       return;
     }
 
+    // Renderiza os cards
     produtosParaExibir.forEach((produto) => {
-      const precoFormatado = produto.price.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      });
+      const precoFormatado = Number(produto.price || 0).toLocaleString(
+        "pt-BR",
+        {
+          style: "currency",
+          currency: "BRL",
+        },
+      );
 
       const cardHTML = `
         <article class="card-produto">
@@ -60,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="tag">${produto.category.toUpperCase()}</span>
             <h3>${produto.title}</h3>
             <p class="preco">${precoFormatado}</p>
-            <button class="btn-comprar">Comprar</button>
+            <button class="btn-comprar" onclick="addToCart(${produto.id})">Comprar</button>
           </div>
         </article>
       `;
@@ -69,34 +145,51 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  renderizarProdutos("destaque");
+  // Inicializa a página mostrando os destaques
+  renderizarProdutos();
 
-  const logoLink = document.querySelector(".logo");
+  // ==========================================================================
+  // 4. CLIQUE NA LOGO (VOLTA PARA A HOME COM DESTAQUES)
+  // ==========================================================================
   if (logoLink) {
     logoLink.addEventListener("click", (event) => {
       event.preventDefault();
-      renderizarProdutos("destaque");
-
-      // Rola para o topo suavemente
+      currentCategory = "destaque";
+      currentSearchQuery = "";
+      if (searchInput) searchInput.value = "";
+      atualizarLinkAtivo("");
+      atualizarIconeBusca();
+      renderizarProdutos();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
-  const linksNavbar = document.querySelectorAll('.menu a[href^="#"]');
-
+  // ==========================================================================
+  // 5. CLIQUES NOS LINKS DAS CATEGORIAS DA NAVBAR
+  // ==========================================================================
   linksNavbar.forEach((link) => {
     link.addEventListener("click", function (event) {
       event.preventDefault();
 
       const destinoId = this.getAttribute("href"); // Ex: "#croche"
-      const categoria = destinoId.replace("#", ""); // "croche"
+      const categoria = destinoId.replace("#", "").toLowerCase();
+
+      currentSearchQuery = "";
+      if (searchInput) searchInput.value = "";
+      atualizarIconeBusca();
 
       if (["croche", "bordado", "ceramica", "papelaria"].includes(categoria)) {
-        // Mostra todos os produtos daquela categoria específica
-        renderizarProdutos("categoria", categoria);
+        currentCategory = categoria;
+        atualizarLinkAtivo(categoria);
+      } else {
+        currentCategory = "destaque";
+        atualizarLinkAtivo("");
       }
 
-      const elementoDestino = document.querySelector("#vitrine");
+      renderizarProdutos();
+
+      const elementoDestino =
+        document.querySelector("#vitrine") || gridProdutos;
       if (elementoDestino) {
         elementoDestino.scrollIntoView({
           behavior: "smooth",
@@ -105,4 +198,59 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // ==========================================================================
+  // 6. LÓGICA DA BUSCA E BOTÃO LUPA / "X"
+  // ==========================================================================
+  function atualizarIconeBusca() {
+    if (!searchBtn) return;
+    const searchIcon = searchBtn.querySelector("i");
+    if (!searchIcon) return;
+
+    if (searchInput && searchInput.value.trim().length > 0) {
+      searchIcon.className = "fa-solid fa-xmark";
+    } else {
+      searchIcon.className = "fa-solid fa-magnifying-glass";
+    }
+  }
+
+  if (searchInput && searchBtn) {
+    searchInput.addEventListener("input", (e) => {
+      currentSearchQuery = e.target.value.toLowerCase().trim();
+      atualizarIconeBusca();
+      renderizarProdutos();
+    });
+
+    searchInput.addEventListener("keyup", (e) => {
+      if (e.key === "Enter") {
+        currentSearchQuery = searchInput.value.toLowerCase().trim();
+        atualizarIconeBusca();
+        renderizarProdutos();
+      }
+    });
+
+    searchBtn.addEventListener("click", () => {
+      if (searchInput.value.length > 0) {
+        searchInput.value = "";
+        currentSearchQuery = "";
+        atualizarIconeBusca();
+        searchInput.focus();
+        renderizarProdutos();
+      } else {
+        searchInput.focus();
+      }
+    });
+  }
+});
+
+gridProdutos.addEventListener("click", (event) => {
+  if (event.target.classList.contains(btn - add - cart)) {
+    const productId = Number(event.target.dataset.id);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof products !== "undefined") {
+    renderProducts(products);
+  }
 });

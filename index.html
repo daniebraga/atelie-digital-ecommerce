@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&family=Nunito:wght@500;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -19,7 +19,6 @@
   </head>
 
   <body>
-    <!-- Cabeçalho -->
     <header class="cabecalho">
       <div class="container nav-container">
         <a href="#" class="logo">Ateliê Digital</a>
@@ -31,6 +30,17 @@
             <li><a href="#ceramica">Cerâmica</a></li>
             <li><a href="#papelaria">Papelaria</a></li>
           </ul>
+
+          <div class="search-box">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Pesquisar e-books..."
+            />
+            <button type="button" id="search-btn" aria-label="Pesquisar">
+              <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+            </button>
+          </div>
 
           <div class="icones-acao">
             <button id="btn-tema" class="btn-icone" aria-label="Alternar Tema">
@@ -47,13 +57,12 @@
 
     <main>
       <section class="hero">
-        <div class="container hero-conteudo">
-          <h1>A arte de criar com as próprias mãos</h1>
+        <div class="hero-conteudo">
+          <h1>Inspiração feita à mão para criar com paixão</h1>
           <p>
-            Descubra técnicas incríveis e crie peças únicas com nossos e-books
-            detalhados de crochê, bordado, cerâmica e papelaria.
+            Descubra receitas detalhadas, moldes e guias práticos em PDF para
+            crochê, bordado, cerâmica e papelaria.
           </p>
-          <a href="#vitrine" class="btn-primario">Ver Coleção Completa</a>
         </div>
       </section>
 
@@ -78,7 +87,6 @@
 
       <section id="vitrine" class="vitrine container">
         <h2 class="titulo-secao">E-books em Destaque</h2>
-
         <div id="grid-produtos" class="grid-produtos"></div>
       </section>
     </main>
