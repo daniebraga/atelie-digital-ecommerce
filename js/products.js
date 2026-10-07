@@ -1,5 +1,5 @@
 const products = [
-  // CROCHE (category: "croche")
+  //  CROCHÊ & AMIGURUMI (category: "croche") - IDs 1 a 6
   {
     id: 1,
     title: "E-book & Molde: Amigurumi Ursinho Boho",
@@ -45,10 +45,19 @@ const products = [
     description:
       "Guia visual com 30 variações de pontos e dicas de arremate perfeito.",
   },
-
-  // BORDADO & COSTURA (category: "bordado")
   {
     id: 6,
+    title: "Apostila de Crochê Terapêutico",
+    category: "croche",
+    price: 31.9,
+    image: "assets/img/croche-terapeutico.png",
+    description:
+      "Aprenda a tecer tops, quimonos e saídas de praia com caimento impecável.",
+  },
+
+  // BORDADO & COSTURA (category: "bordado") - IDs 7 a 12
+  {
+    id: 7,
     title: "Apostila de Bordado Livre para Iniciantes",
     category: "bordado",
     price: 29.9,
@@ -57,7 +66,7 @@ const products = [
       "Guia ilustrado com 12 pontos fundamentais e 5 riscos prontos para imprimir.",
   },
   {
-    id: 7,
+    id: 8,
     title: "Kit Digital: Moldes de Costura Criativa",
     category: "bordado",
     price: 34.9,
@@ -66,7 +75,7 @@ const products = [
       "Moldes em tamanho real para bolsas, estojos e organizadores de tecido.",
   },
   {
-    id: 8,
+    id: 9,
     title: "Guia Botânico de Bordado em Bastidor",
     category: "bordado",
     price: 32.0,
@@ -74,7 +83,7 @@ const products = [
     description: "Riscos de flores e folhagens com paletas de cores indicadas.",
   },
   {
-    id: 9,
+    id: 10,
     title: "E-book Costura do Zero: Roupas Leves",
     category: "bordado",
     price: 45.0,
@@ -83,7 +92,7 @@ const products = [
       "Aprenda a cortar, costurar e dar acabamento em saias e blusas simples.",
   },
   {
-    id: 10,
+    id: 11,
     title: "Coleção Riscos de Aquarela para Bordar",
     category: "bordado",
     price: 22.9,
@@ -91,10 +100,19 @@ const products = [
     description:
       "Técnica mista de pintura em tecido combinada com pontos de bordado.",
   },
-
-  // CERÂMICA & DECORAÇÃO (category: "ceramica")
   {
-    id: 11,
+    id: 12,
+    title: "Apostila de Punch Needle & Agulha Mágica",
+    category: "bordado",
+    price: 26.5,
+    image: "assets/img/punch-needle.png",
+    description:
+      "Guia prático para criar quadros em relevo e flâmulas decorativas.",
+  },
+
+  // 🏺 CERÂMICA & DECORAÇÃO (category: "ceramica") - IDs 13 a 18
+  {
+    id: 13,
     title: "Guia de Cerâmica",
     category: "ceramica",
     price: 39.9,
@@ -103,7 +121,7 @@ const products = [
       "Técnicas de modelagem sem forno profissional e dicas de acabamento.",
   },
   {
-    id: 12,
+    id: 14,
     title: "E-book Macramê Moderno: Painéis e Suportes",
     category: "ceramica",
     price: 27.5,
@@ -112,7 +130,7 @@ const products = [
       "Aprenda os nós principais e crie peças decorativas incríveis para casa.",
   },
   {
-    id: 13,
+    id: 15,
     title: "Apostila de Vela Artesanal Aromática",
     category: "ceramica",
     price: 31.9,
@@ -121,7 +139,7 @@ const products = [
       "Passo a passo para produção de velas ecológicas de cera de soja.",
   },
   {
-    id: 14,
+    id: 16,
     title: "Guia Prático de Saboaria Natural",
     category: "ceramica",
     price: 35.0,
@@ -130,7 +148,7 @@ const products = [
       "Formulações para sabonetes artesanais, fitoterápicos e esfoliantes.",
   },
   {
-    id: 15,
+    id: 17,
     title: "Manual de Kintsugi: A Arte da Restauração",
     category: "ceramica",
     price: 28.0,
@@ -138,10 +156,19 @@ const products = [
     description:
       "Técnica japonesa de reparar cerâmicas quebradas com detalhes em ouro.",
   },
-
-  // PAPELARIA & ORGANIZAÇÃO (category: "papelaria")
   {
-    id: 16,
+    id: 18,
+    title: "E-book Pintura em Cerâmica & Terracota",
+    category: "ceramica",
+    price: 23.9,
+    image: "assets/img/ceramica-terracota.png",
+    description:
+      "Passo a passo para impermeabilizar, pintar e decorar vasos e pratos artesanais.",
+  },
+
+  // 📝 PAPELARIA & ORGANIZAÇÃO (category: "papelaria") - IDs 19 a 24
+  {
+    id: 19,
     title: "Kit Ideias de Planner: Como enfeitar seu mês",
     category: "papelaria",
     price: 19.9,
@@ -149,7 +176,7 @@ const products = [
     description: "Ideias para enfeitar seu planner mensal.",
   },
   {
-    id: 17,
+    id: 20,
     title: "Kit Encadernação Artesanal & Coptas",
     category: "papelaria",
     price: 33.9,
@@ -158,7 +185,7 @@ const products = [
       "Aprenda a produzir seus próprios cadernos, agendas e Sketchbooks.",
   },
   {
-    id: 18,
+    id: 21,
     title: "Guia de Lettering para Iniciantes",
     category: "papelaria",
     price: 25.0,
@@ -167,7 +194,7 @@ const products = [
       "Exercícios de caligrafia e desenho de letras para quadros e convites.",
   },
   {
-    id: 19,
+    id: 22,
     title: "Guia Bullet Journal",
     category: "papelaria",
     price: 14.9,
@@ -175,12 +202,21 @@ const products = [
     description: "Ideias para criar e enfeitar seu bullet journal",
   },
   {
-    id: 20,
+    id: 23,
     title: "E-book Origami & Arte em Papel",
     category: "papelaria",
     price: 21.9,
     image: "assets/img/Origami-Arte-em-Papel.png",
     description:
       "Diagramas passo a passo de dobras tradicionais e esculturas de papel.",
+  },
+  {
+    id: 24,
+    title: "Apostila de Cartonagem e Caixas Personalizadas",
+    category: "papelaria",
+    price: 29.9,
+    image: "assets/img/cartonagem.png",
+    description:
+      "Técnicas de corte e revestimento para criar caixas rígidas de presente e organizadores.",
   },
 ];

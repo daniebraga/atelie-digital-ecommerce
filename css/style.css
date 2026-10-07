@@ -1,6 +1,3 @@
-/* =========================================
-   VARIÁVEIS DE CORES E TEMA (MANTIDAS)
-========================================= */
 :root {
   --bg-primary: #fdf6eb;
   --bg-surface: #ac9570;
@@ -26,9 +23,6 @@ body.dark-theme {
   --border-color: #3d322b;
 }
 
-/* =========================================
-   RESET E BASE
-========================================= */
 * {
   margin: 0;
   padding: 0;
@@ -68,9 +62,6 @@ ul {
   list-style: none;
 }
 
-/* =========================================
-   CABEÇALHO E MENU
-========================================= */
 .cabecalho {
   background-color: var(--bg-primary);
   padding: 20px 0;
@@ -173,9 +164,6 @@ ul {
   padding-bottom: 4px;
 }
 
-/* =========================================
-   HERO (BANNER PRINCIPAL)
-========================================= */
 .hero {
   background-color: var(--bg-surface);
   padding: 60px 20px;
@@ -208,9 +196,6 @@ ul {
   color: var(--text-primary);
 }
 
-/* =========================================
-   BOTÕES
-========================================= */
 .btn-primario,
 .btn-comprar {
   display: inline-block;
@@ -237,9 +222,6 @@ ul {
   transform: translateY(-2px);
 }
 
-/* =========================================
-   CATEGORIAS
-========================================= */
 .categorias {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -268,9 +250,6 @@ ul {
   font-size: 1.5rem;
 }
 
-/* =========================================
-   VITRINE (PRODUTOS)
-========================================= */
 .vitrine {
   padding: 40px 20px 80px;
   width: 100%;
@@ -358,9 +337,6 @@ ul {
   font-size: 0.8rem;
 }
 
-/* =========================================
-   ÍCONES DE AÇÃO (TEMA E CARRINHO)
-========================================= */
 .icones-acao {
   display: flex;
   align-items: center;
@@ -405,36 +381,7 @@ body.dark-theme .icone-lua {
   display: none;
 }
 
-/* =========================================
-   MODAL / GAVETA LATERAL DO CARRINHO
-========================================= */
-.cart-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.cart-modal-overlay.open {
-  opacity: 1;
-  visibility: visible;
-}
-
-.cart-drawer {
-  width: 100%;
-  max-width: 400px;
-  height: 100%;
+.rodape {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
@@ -649,359 +596,4 @@ body.dark-theme .icone-lua {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* =========================================
-   PÁGINA DE CHECKOUT
-========================================= */
-.checkout-container {
-  padding-top: 40px;
-  padding-bottom: 80px;
-}
-
-.btn-voltar-loja {
-  font-weight: 700;
-  color: var(--brand-secondary);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.2s;
-}
-
-.btn-voltar-loja:hover {
-  color: var(--brand-accent);
-}
-
-.checkout-grid {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.checkout-card {
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 25px;
-  margin-bottom: 25px;
-}
-
-.checkout-card h2 {
-  font-size: 1.25rem;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--text-primary);
-}
-
-.form-help-text {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin-bottom: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 18px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-
-.form-group label {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.form-group input {
-  padding: 12px 15px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: inherit;
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.form-group input:focus {
-  border-color: var(--brand-accent);
-}
-
-/* Opções de Pagamento */
-.pagamento-options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.pagamento-option {
-  border: 2px solid var(--border-color);
-  padding: 15px;
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  transition:
-    border-color 0.2s,
-    background-color 0.2s;
-}
-
-.pagamento-option:hover,
-.pagamento-option.active {
-  border-color: var(--brand-secondary);
-  background-color: rgba(107, 142, 123, 0.05);
-}
-
-.painel-pagamento {
-  background-color: var(--bg-surface);
-  padding: 20px;
-  border-radius: 10px;
-  opacity: 0.95;
-}
-
-.pix-info {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.pix-icon-big {
-  font-size: 2.5rem;
-  color: #32bcad;
-}
-
-.badge-rapido {
-  display: inline-block;
-  background-color: var(--brand-accent);
-  color: #12100e;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
-.summary-items {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-height: 300px;
-  overflow-y: auto;
-  margin-bottom: 20px;
-}
-
-.summary-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.summary-item img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-.summary-item-info {
-  flex: 1;
-}
-
-.summary-item-info h4 {
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-.summary-item-info span {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-}
-
-.summary-divider {
-  height: 1px;
-  background-color: var(--border-color);
-  margin: 15px 0;
-}
-
-.summary-total-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.summary-total-row strong {
-  color: var(--brand-secondary);
-  font-size: 1.4rem;
-}
-
-.garantia-box {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px;
-  background-color: var(--bg-surface);
-  border-radius: 8px;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-}
-
-.btn-checkout-submit {
-  width: 100%;
-  background-color: var(--brand-accent);
-  color: #12100e;
-  border: none;
-  padding: 16px;
-  border-radius: 30px;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1rem;
-  cursor: pointer;
-  transition:
-    filter 0.2s,
-    transform 0.2s;
-}
-
-.btn-checkout-submit:hover {
-  filter: brightness(0.9);
-  transform: translateY(-2px);
-}
-
-/* =========================================
-   RODAPÉ CENTRALIZADO E ENQUADRADO
-========================================= */
-.rodape {
-  background-color: var(--bg-primary);
-  border-top: 1px solid var(--border-color);
-  padding-top: 50px;
-  color: var(--text-secondary);
-  width: 100%;
-  text-align: center;
-  transition:
-    background-color 0.3s,
-    border-color 0.3s,
-    color 0.3s;
-}
-
-/* Força a caixa interna do rodapé a alinhar perfeitamente com a vitrine */
-.rodape-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-  gap: 30px;
-  padding-bottom: 40px;
-  max-width: 1000px; /* Alinha perfeitamente com o limite dos cards */
-  margin: 0 auto !important; /* Garante a centralização na tela */
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.rodape-coluna {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  flex: 1 1 200px; /* Distribuição uniforme e centralizada */
-  max-width: 260px;
-}
-
-.rodape-coluna h3.rodape-logo {
-  font-size: 1.6rem;
-  margin-bottom: 12px;
-  color: var(--text-primary);
-}
-
-.rodape-coluna h4 {
-  font-family: var(--fonte-titulo);
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  color: var(--text-primary);
-}
-
-.rodape-descricao {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.rodape-contato {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--brand-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.rodape-coluna ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 0;
-}
-
-.rodape-coluna ul a {
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
-}
-
-.rodape-coluna ul a:hover {
-  color: var(--brand-secondary);
-}
-
-.redes-sociais {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
-.redes-sociais a {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background-color: var(--border-color);
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    transform 0.2s ease;
-}
-
-.redes-sociais a:hover {
-  background-color: var(--brand-secondary);
-  color: #fff;
-  transform: translateY(-3px);
-}
-
-.rodape-bottom {
-  border-top: 1px solid var(--border-color);
-  padding: 20px 0;
-  text-align: center;
-  font-size: 0.85rem;
-  background-color: var(--bg-surface);
-  color: var(--text-primary);
 }
