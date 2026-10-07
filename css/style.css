@@ -1,3 +1,6 @@
+/* =========================================
+   VARIÁVEIS DE CORES E TEMA (MANTIDAS)
+========================================= */
 :root {
   --bg-primary: #fdf6eb;
   --bg-surface: #ac9570;
@@ -23,6 +26,9 @@ body.dark-theme {
   --border-color: #3d322b;
 }
 
+/* =========================================
+   RESET E BASE
+========================================= */
 * {
   margin: 0;
   padding: 0;
@@ -62,6 +68,9 @@ ul {
   list-style: none;
 }
 
+/* =========================================
+   CABEÇALHO E MENU
+========================================= */
 .cabecalho {
   background-color: var(--bg-primary);
   padding: 20px 0;
@@ -157,16 +166,19 @@ ul {
 .menu a:hover {
   color: var(--brand-secondary);
 }
+
 .menu a.ativo {
   color: var(--brand-secondary) !important;
   border-bottom: 2px solid var(--brand-secondary);
   padding-bottom: 4px;
 }
 
-
+/* =========================================
+   HERO (BANNER PRINCIPAL)
+========================================= */
 .hero {
   background-color: var(--bg-surface);
-  padding: 60px 20px; 
+  padding: 60px 20px;
   text-align: center;
   border-bottom: 4px solid var(--brand-secondary);
   transition:
@@ -186,21 +198,24 @@ ul {
 .hero-conteudo h1 {
   font-size: 2.8rem;
   margin-bottom: 10px;
-  line-height: 1.2; 
+  line-height: 1.2;
 }
 
 .hero-conteudo p {
   font-size: 1.1rem;
-  margin: 0 auto 20px; 
-  line-height: 1.4; 
+  margin: 0 auto 20px;
+  line-height: 1.4;
   color: var(--text-primary);
 }
 
+/* =========================================
+   BOTÕES
+========================================= */
 .btn-primario,
 .btn-comprar {
   display: inline-block;
   width: auto;
-  margin: 0 auto; 
+  margin: 0 auto;
   background-color: var(--brand-accent);
   color: #12100e;
   padding: 12px 28px;
@@ -222,6 +237,9 @@ ul {
   transform: translateY(-2px);
 }
 
+/* =========================================
+   CATEGORIAS
+========================================= */
 .categorias {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -250,7 +268,9 @@ ul {
   font-size: 1.5rem;
 }
 
-
+/* =========================================
+   VITRINE (PRODUTOS)
+========================================= */
 .vitrine {
   padding: 40px 20px 80px;
   width: 100%;
@@ -269,7 +289,7 @@ ul {
   justify-content: center;
   max-width: 1200px;
   gap: 25px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 .card-produto {
@@ -294,7 +314,7 @@ ul {
 
 .card-produto img {
   width: 100%;
-  height: 200px; 
+  height: 200px;
   object-fit: cover;
   border-bottom: 1px solid var(--border-color);
 }
@@ -304,7 +324,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  text-align: left; 
+  text-align: left;
   flex-grow: 1;
 }
 
@@ -338,7 +358,9 @@ ul {
   font-size: 0.8rem;
 }
 
-
+/* =========================================
+   ÍCONES DE AÇÃO (TEMA E CARRINHO)
+========================================= */
 .icones-acao {
   display: flex;
   align-items: center;
@@ -358,6 +380,7 @@ ul {
   justify-content: center;
   padding: 10px;
   border-radius: 50%;
+  position: relative;
   transition:
     background-color 0.3s,
     color 0.3s;
@@ -382,18 +405,9 @@ body.dark-theme .icone-lua {
   display: none;
 }
 
-.rodape {
-  background-color: var(--bg-primary);
-  padding: 30px 20px;
-  text-align: center;
-  color: var(--text-secondary);
-  border-top: 1px solid var(--border-color);
-  transition:
-    background-color 0.3s,
-    border-color 0.3s,
-    color 0.3s;
-}
-
+/* =========================================
+   MODAL / GAVETA LATERAL DO CARRINHO
+========================================= */
 .cart-modal-overlay {
   position: fixed;
   top: 0;
@@ -477,7 +491,6 @@ body.dark-theme .icone-lua {
   transform: scale(1.1);
 }
 
-/* Corpo e Lista de Itens */
 .cart-body {
   flex: 1;
   overflow-y: auto;
@@ -638,10 +651,9 @@ body.dark-theme .icone-lua {
   justify-content: center;
 }
 
-.btn-icone {
-  position: relative; 
-}
-
+/* =========================================
+   PÁGINA DE CHECKOUT
+========================================= */
 .checkout-container {
   padding-top: 40px;
   padding-bottom: 80px;
@@ -725,7 +737,7 @@ body.dark-theme .icone-lua {
   border-color: var(--brand-accent);
 }
 
-/* Opções de Pagamento (Tabs/Radios) */
+/* Opções de Pagamento */
 .pagamento-options {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -754,7 +766,6 @@ body.dark-theme .icone-lua {
   background-color: rgba(107, 142, 123, 0.05);
 }
 
-/* Painéis de Pagamento */
 .painel-pagamento {
   background-color: var(--bg-surface);
   padding: 20px;
@@ -872,3 +883,125 @@ body.dark-theme .icone-lua {
   transform: translateY(-2px);
 }
 
+/* =========================================
+   RODAPÉ CENTRALIZADO E ENQUADRADO
+========================================= */
+.rodape {
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-color);
+  padding-top: 50px;
+  color: var(--text-secondary);
+  width: 100%;
+  text-align: center;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s,
+    color 0.3s;
+}
+
+/* Força a caixa interna do rodapé a alinhar perfeitamente com a vitrine */
+.rodape-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 30px;
+  padding-bottom: 40px;
+  max-width: 1000px; /* Alinha perfeitamente com o limite dos cards */
+  margin: 0 auto !important; /* Garante a centralização na tela */
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.rodape-coluna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1 1 200px; /* Distribuição uniforme e centralizada */
+  max-width: 260px;
+}
+
+.rodape-coluna h3.rodape-logo {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.rodape-coluna h4 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+}
+
+.rodape-descricao {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.rodape-contato {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brand-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.rodape-coluna ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+}
+
+.rodape-coluna ul a {
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.rodape-coluna ul a:hover {
+  color: var(--brand-secondary);
+}
+
+.redes-sociais {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.redes-sociais a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.redes-sociais a:hover {
+  background-color: var(--brand-secondary);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.rodape-bottom {
+  border-top: 1px solid var(--border-color);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+}
