@@ -1,0 +1,46 @@
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .menu {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .menu ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .icones-acao {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-conteudo h1 {
+    font-size: 2.2rem;
+  }
+}
+
+.filtro-btn.ativo {
+  color: var(--brand-accent) !important;
+  border-bottom: 2px solid var(--brand-accent);
+  padding-bottom: 2px;
+}
+
+.container-abas {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+}

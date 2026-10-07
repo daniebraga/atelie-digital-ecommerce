@@ -1,6 +1,3 @@
-/* =========================================
-   VARIÁVEIS DE CORES E TEMA
-========================================= */
 :root {
   --bg-primary: #fdf6eb;
   --bg-surface: #ac9570;
@@ -26,9 +23,6 @@ body.dark-theme {
   --border-color: #3d322b;
 }
 
-/* =========================================
-   RESET E BASE
-========================================= */
 * {
   margin: 0;
   padding: 0;
@@ -68,9 +62,6 @@ ul {
   list-style: none;
 }
 
-/* =========================================
-   CABEÇALHO E MENU
-========================================= */
 .cabecalho {
   background-color: var(--bg-primary);
   padding: 20px 0;
@@ -172,12 +163,10 @@ ul {
   padding-bottom: 4px;
 }
 
-/* =========================================
-   HERO (TEXTOS MAIS JUNTOS E CENTRALIZADOS)
-========================================= */
+
 .hero {
   background-color: var(--bg-surface);
-  padding: 60px 20px; /* Reduzido de 80px para 60px para aproximar do menu */
+  padding: 60px 20px; 
   text-align: center;
   border-bottom: 4px solid var(--brand-secondary);
   transition:
@@ -196,25 +185,22 @@ ul {
 
 .hero-conteudo h1 {
   font-size: 2.8rem;
-  margin-bottom: 10px; /* Reduzido de 20px para 10px para colar no parágrafo */
-  line-height: 1.2; /* Diminuído para aproximação das linhas do próprio título */
+  margin-bottom: 10px;
+  line-height: 1.2; 
 }
 
 .hero-conteudo p {
   font-size: 1.1rem;
-  margin: 0 auto 20px; /* Reduzido de 30px para 20px para colar no botão */
-  line-height: 1.4; /* Linhas do parágrafo mais compactas */
+  margin: 0 auto 20px; 
+  line-height: 1.4; 
   color: var(--text-primary);
 }
 
-/* =========================================
-   BOTÕES
-========================================= */
 .btn-primario,
 .btn-comprar {
   display: inline-block;
   width: auto;
-  margin: 0 auto; /* Reforça o alinhamento no centro */
+  margin: 0 auto; 
   background-color: var(--brand-accent);
   color: #12100e;
   padding: 12px 28px;
@@ -236,9 +222,6 @@ ul {
   transform: translateY(-2px);
 }
 
-/* =========================================
-   CATEGORIAS
-========================================= */
 .categorias {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -267,9 +250,7 @@ ul {
   font-size: 1.5rem;
 }
 
-/* =========================================
-   VITRINE (PRODUTOS)
-========================================= */
+
 .vitrine {
   padding: 40px 20px 80px;
   width: 100%;
@@ -288,7 +269,7 @@ ul {
   justify-content: center;
   max-width: 1200px;
   gap: 25px;
-  margin: 0 auto; /* Centraliza o bloco da grid */
+  margin: 0 auto; 
 }
 
 .card-produto {
@@ -313,7 +294,7 @@ ul {
 
 .card-produto img {
   width: 100%;
-  height: 200px; /* Reduzido de 220px para 160px */
+  height: 200px; 
   object-fit: cover;
   border-bottom: 1px solid var(--border-color);
 }
@@ -322,8 +303,8 @@ ul {
   padding: 15px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Alinha tag, título e preço à esquerda */
-  text-align: left; /* Garante que o texto fique alinhado à esquerda */
+  align-items: flex-start;
+  text-align: left; 
   flex-grow: 1;
 }
 
@@ -357,9 +338,7 @@ ul {
   font-size: 0.8rem;
 }
 
-/* =========================================
-   ÍCONES DE AÇÃO (TEMA E CARRINHO)
-========================================= */
+
 .icones-acao {
   display: flex;
   align-items: center;
@@ -403,7 +382,6 @@ body.dark-theme .icone-lua {
   display: none;
 }
 
-/*   RODAPÉ */
 .rodape {
   background-color: var(--bg-primary);
   padding: 30px 20px;
@@ -416,9 +394,6 @@ body.dark-theme .icone-lua {
     color 0.3s;
 }
 
-/*MODAL / GAVETA LATERAL DO CARRINHO */
-
-/* Fundo Escuro Overlay */
 .cart-modal-overlay {
   position: fixed;
   top: 0;
@@ -442,7 +417,6 @@ body.dark-theme .icone-lua {
   visibility: visible;
 }
 
-/* Painel Lateral da Gaveta */
 .cart-drawer {
   width: 100%;
   max-width: 400px;
@@ -460,7 +434,6 @@ body.dark-theme .icone-lua {
   transform: translateX(0);
 }
 
-/* Cabeçalho do Carrinho */
 .cart-header {
   padding: 20px;
   border-bottom: 1px solid var(--border-color);
@@ -526,7 +499,6 @@ body.dark-theme .icone-lua {
   opacity: 0.6;
 }
 
-/* Card do Item no Carrinho */
 .cart-item {
   display: flex;
   align-items: center;
@@ -608,7 +580,6 @@ body.dark-theme .icone-lua {
   color: #d9534f;
 }
 
-/* Rodapé e Botão de Checkout */
 .cart-footer {
   padding: 20px;
   border-top: 1px solid var(--border-color);
@@ -651,7 +622,6 @@ body.dark-theme .icone-lua {
   transform: translateY(-2px);
 }
 
-/* Badge do Carrinho no Ícone do Cabeçalho */
 .cart-badge {
   position: absolute;
   top: -2px;
@@ -669,56 +639,9 @@ body.dark-theme .icone-lua {
 }
 
 .btn-icone {
-  position: relative; /* Necessário para posicionar o badge no ícone */
+  position: relative; 
 }
 
-/* =========================================
-   RESPONSIVIDADE (CELULAR)
-========================================= */
-@media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    gap: 15px;
-  }
-  .menu {
-    flex-direction: column;
-    gap: 15px;
-  }
-  .menu ul {
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .icones-acao {
-    border-left: none;
-    padding-left: 0;
-    border-top: 1px solid var(--border-color);
-    padding-top: 15px;
-    width: 100%;
-    justify-content: center;
-  }
-  .hero-conteudo h1 {
-    font-size: 2.2rem;
-  }
-}
-
-.filtro-btn.ativo {
-  color: var(--brand-accent) !important;
-  border-bottom: 2px solid var(--brand-accent);
-  padding-bottom: 2px;
-}
-
-.container-abas {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 35px;
-  flex-wrap: wrap;
-}
-
-/* =========================================
-   PÁGINA DE CHECKOUT
-========================================= */
 .checkout-container {
   padding-top: 40px;
   padding-bottom: 80px;
@@ -862,7 +785,6 @@ body.dark-theme .icone-lua {
   font-weight: 700;
 }
 
-/* Resumo do Pedido */
 .summary-items {
   display: flex;
   flex-direction: column;
@@ -950,8 +872,3 @@ body.dark-theme .icone-lua {
   transform: translateY(-2px);
 }
 
-@media (max-width: 900px) {
-  .checkout-grid {
-    grid-template-columns: 1fr;
-  }
-}

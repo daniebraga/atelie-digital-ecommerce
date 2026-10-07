@@ -1,4 +1,5 @@
 const products = [
+  // CROCHE (category: "croche")
   {
     id: 1,
     title: "E-book & Molde: Amigurumi Ursinho Boho",
@@ -45,7 +46,7 @@ const products = [
       "Guia visual com 30 variações de pontos e dicas de arremate perfeito.",
   },
 
-  // 🪡 BORDADO & COSTURA (category: "bordado")
+  // BORDADO & COSTURA (category: "bordado")
   {
     id: 6,
     title: "Apostila de Bordado Livre para Iniciantes",
@@ -91,7 +92,7 @@ const products = [
       "Técnica mista de pintura em tecido combinada com pontos de bordado.",
   },
 
-  // 🏺 CERÂMICA & DECORAÇÃO (category: "ceramica")
+  // CERÂMICA & DECORAÇÃO (category: "ceramica")
   {
     id: 11,
     title: "Guia de Cerâmica",
@@ -138,7 +139,7 @@ const products = [
       "Técnica japonesa de reparar cerâmicas quebradas com detalhes em ouro.",
   },
 
-  // 📝 PAPELARIA & ORGANIZAÇÃO (category: "papelaria")
+  // PAPELARIA & ORGANIZAÇÃO (category: "papelaria")
   {
     id: 16,
     title: "Kit Ideias de Planner: Como enfeitar seu mês",

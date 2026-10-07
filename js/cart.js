@@ -1,12 +1,6 @@
-/* ==========================================================================
-   ATELIÊ DIGITAL - GERENCIAMENTO DO CARRINHO E CHECKOUT (js/cart.js)
-   ========================================================================== */
-
-// DECLARAÇÕES GLOBAIS (Apenas uma vez no arquivo)
 const CART_STORAGE_KEY = "cart-atelie";
 let cart = [];
 
-// INICIALIZAÇÃO
 document.addEventListener("DOMContentLoaded", () => {
   loadCartFromStorage();
   updateCartBadge();
@@ -19,9 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupCheckoutPage();
 });
 
-/* ==========================================================================
-   1. PERSISTÊNCIA E LEITURA DO LOCALSTORAGE
-   ========================================================================== */
 function loadCartFromStorage() {
   const storedCart = localStorage.getItem(CART_STORAGE_KEY);
   if (storedCart) {
@@ -40,9 +31,6 @@ function saveCartToStorage() {
   localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
 }
 
-/* ==========================================================================
-   2. MANIPULAÇÃO DO CARRINHO
-   ========================================================================== */
 window.addToCart = function (productId) {
   if (typeof products === "undefined") {
     console.error("products.js não foi carregado!");
@@ -106,9 +94,6 @@ window.clearCart = function () {
   renderCheckoutSummary();
 };
 
-/* ==========================================================================
-   3. ATUALIZAÇÃO DO CONTADOR NA NAVBAR
-   ========================================================================== */
 function updateCartBadge() {
   const cartIconLink = document.querySelector('a[href="#carrinho"]');
   if (!cartIconLink) return;
@@ -128,9 +113,6 @@ function updateCartBadge() {
   }
 }
 
-/* ==========================================================================
-   4. MODAL/GAVETA DO CARRINHO (INDEX.HTML)
-   ========================================================================== */
 function renderCartItems() {
   const cartListContainer = document.getElementById("cart-items-list");
   const cartTotalContainer = document.getElementById("cart-total-price");
@@ -232,9 +214,6 @@ function setupCartModalEvents() {
   }
 }
 
-/* ==========================================================================
-   5. RESUMO DO CHECKOUT (CHECKOUT.HTML)
-   ========================================================================== */
 function renderCheckoutSummary() {
   const summaryContainer = document.getElementById("checkout-items-list");
   const totalPriceContainer = document.getElementById("checkout-total-price");
