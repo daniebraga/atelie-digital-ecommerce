@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Ateliê Digital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&family=Nunito:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="cabecalho">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">Ateliê Digital</a>
+        <a href="index.html" class="btn-voltar-loja">
+          <i class="fa-solid fa-arrow-left"></i> Voltar à Loja
+        </a>
+      </div>
+    </header>
+
+    <main class="container checkout-container">
+      <h1 class="titulo-secao">Finalizar Pedido</h1>
+
+      <div class="checkout-grid">
+        <section class="checkout-form-section">
+          <form id="checkout-form">
+            <div class="checkout-card">
+              <h2><i class="fa-regular fa-user"></i> 1. Dados Pessoais</h2>
+              <p class="form-help-text">
+                Seus e-books em PDF serão enviados para o e-mail informado
+                abaixo.
+              </p>
+
+              <div class="form-group">
+                <label for="nome">Nome Completo *</label>
+                <input
+                  type="text"
+                  id="nome"
+                  required
+                  placeholder="Digite seu nome completo"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">E-mail para Recebimento *</label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  placeholder="seuemail@exemplo.com"
+                />
+              </div>
+            </div>
+
+            <div class="checkout-card">
+              <h2>
+                <i class="fa-regular fa-credit-card"></i> 2. Forma de Pagamento
+              </h2>
+
+              <div class="pagamento-options">
+                <label class="pagamento-option active">
+                  <input
+                    type="radio"
+                    name="forma-pagamento"
+                    value="pix"
+                    checked
+                  />
+                  <i class="fa-brands fa-pix"></i> Pix (Aprovação Imediata)
+                </label>
+                <label class="pagamento-option">
+                  <input type="radio" name="forma-pagamento" value="cartao" />
+                  <i class="fa-solid fa-credit-card"></i> Cartão de Crédito
+                </label>
+              </div>
+
+              <div id="painel-pix" class="painel-pagamento">
+                <div class="pix-info">
+                  <i class="fa-brands fa-pix pix-icon-big"></i>
+                  <p>
+                    O código QR e a chave de cópia serão gerados após clicar em
+                    <strong>Confirmar Pedido</strong>.
+                  </p>
+                  <span class="badge-rapido"
+                    ><i class="fa-solid fa-bolt"></i> Receba o e-book em
+                    instantes no e-mail!</span
+                  >
+                </div>
+              </div>
+
+              <div
+                id="painel-cartao"
+                class="painel-pagamento"
+                style="display: none"
+              >
+                <div class="form-group">
+                  <label for="num-cartao">Número do Cartão</label>
+                  <input
+                    type="text"
+                    id="num-cartao"
+                    placeholder="0000 0000 0000 0000"
+                  />
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="validade">Validade</label>
+                    <input type="text" id="validade" placeholder="MM/AA" />
+                  </div>
+                  <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" placeholder="123" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="nome-cartao">Nome no Cartão</label>
+                  <input
+                    type="text"
+                    id="nome-cartao"
+                    placeholder="Como impresso no cartão"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-checkout-submit">
+              Confirmar e Pagar
+            </button>
+          </form>
+        </section>
+
+        <aside class="checkout-summary-section">
+          <div class="checkout-card summary-card">
+            <h2>Resumo do Pedido</h2>
+            <div id="checkout-items-list" class="summary-items"></div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-total-row">
+              <span>Total:</span>
+              <strong id="checkout-total-price">R$ 0,00</strong>
+            </div>
+
+            <div class="garantia-box">
+              <i class="fa-solid fa-shield-halved"></i>
+              <p>
+                Ambiente seguro e arquivos entregues diretamente no seu e-mail.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="rodape">
+      <div class="container">
+        <p>&copy; 2026 Ateliê Digital. Feito com carinho.</p>
+      </div>
+    </footer>
+
+    <!-- APENAS ESTES DOIS SCRIPTS NO CHECKOUT -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+  </body>
+</html>
