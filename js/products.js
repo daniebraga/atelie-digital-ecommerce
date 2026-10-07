@@ -110,7 +110,7 @@ const products = [
       "Guia prático para criar quadros em relevo e flâmulas decorativas.",
   },
 
-  // 🏺 CERÂMICA & DECORAÇÃO (category: "ceramica") - IDs 13 a 18
+  // CERÂMICA & DECORAÇÃO (category: "ceramica") - IDs 13 a 18
   {
     id: 13,
     title: "Guia de Cerâmica",
@@ -166,7 +166,7 @@ const products = [
       "Passo a passo para impermeabilizar, pintar e decorar vasos e pratos artesanais.",
   },
 
-  // 📝 PAPELARIA & ORGANIZAÇÃO (category: "papelaria") - IDs 19 a 24
+  // PAPELARIA & ORGANIZAÇÃO (category: "papelaria") - IDs 19 a 24
   {
     id: 19,
     title: "Kit Ideias de Planner: Como enfeitar seu mês",
