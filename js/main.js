@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ==========================================================================
-  // 1. SELEÇÃO DE ELEMENTOS DO DOM
-  // ==========================================================================
   const themeToggleButton = document.getElementById("btn-tema");
   const body = document.body;
   const gridProdutos = document.getElementById("grid-produtos");
@@ -10,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const linksNavbar = document.querySelectorAll(".menu ul a");
   const tituloSecao = document.querySelector(".titulo-secao");
 
-  // Elementos de busca
   const searchInput =
     document.getElementById("search-input") ||
     document.querySelector(".search-box input");
@@ -18,13 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("search-btn") ||
     document.querySelector(".search-box button");
 
-  // Estado dos filtros ("destaque" é o padrão inicial)
   let currentCategory = "destaque";
   let currentSearchQuery = "";
 
-  // ==========================================================================
-  // 2. ALTERNÂNCIA E PERSISTÊNCIA DO DARK MODE
-  // ==========================================================================
   const temaSalvo = localStorage.getItem("tema-atelie");
   if (temaSalvo === "dark") {
     body.classList.add("dark-theme");
@@ -38,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Helper para destacar visualmente a categoria ativa no menu
   function atualizarLinkAtivo(categoriaAtiva) {
     linksNavbar.forEach((link) => {
       const href = link.getAttribute("href").replace("#", "").toLowerCase();
@@ -50,9 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ==========================================================================
-  // 3. RENDERIZAÇÃO DE PRODUTOS
-  // ==========================================================================
   function renderizarProdutos() {
     if (!gridProdutos) return;
 
@@ -64,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     gridProdutos.innerHTML = "";
     let produtosParaExibir = [];
 
-    // SE HOUVER BUSCA POR TEXTO
     if (currentSearchQuery !== "") {
       if (heroSection) heroSection.style.display = "none";
       if (tituloSecao) tituloSecao.textContent = "Resultados da Pesquisa";
@@ -86,9 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         return matchesSearch && matchesCategory;
       });
-    }
-    // SE ESTIVER EM UMA CATEGORIA ESPECÍFICA (Crochê, Bordado, Cerâmica, Papelaria)
-    else if (currentCategory !== "destaque" && currentCategory !== "todos") {
+    } else if (currentCategory !== "destaque" && currentCategory !== "todos") {
       if (heroSection) heroSection.style.display = "none";
 
       // Atualiza o título da seção com o nome da categoria formatado
@@ -100,16 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
       produtosParaExibir = products.filter(
         (p) => p.category.toLowerCase() === currentCategory.toLowerCase(),
       );
-    }
-    // MODO INICIAL / DESTAQUE (3 primeiros produtos + Hero)
-    else {
+    } else {
       if (heroSection) heroSection.style.display = "block";
       if (tituloSecao) tituloSecao.textContent = "E-books em Destaque";
 
       produtosParaExibir = products.slice(0, 3);
     }
 
-    // Mensagem se nenhum produto for encontrado
     if (produtosParaExibir.length === 0) {
       gridProdutos.innerHTML = `
         <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 3rem 1rem;">
@@ -119,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Renderiza os cards
     produtosParaExibir.forEach((produto) => {
       const precoFormatado = Number(produto.price || 0).toLocaleString(
         "pt-BR",
@@ -145,12 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Inicializa a página mostrando os destaques
   renderizarProdutos();
 
-  // ==========================================================================
-  // 4. CLIQUE NA LOGO (VOLTA PARA A HOME COM DESTAQUES)
-  // ==========================================================================
   if (logoLink) {
     logoLink.addEventListener("click", (event) => {
       event.preventDefault();
@@ -164,9 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ==========================================================================
-  // 5. CLIQUES NOS LINKS DAS CATEGORIAS DA NAVBAR
-  // ==========================================================================
   linksNavbar.forEach((link) => {
     link.addEventListener("click", function (event) {
       event.preventDefault();
@@ -199,9 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ==========================================================================
-  // 6. LÓGICA DA BUSCA E BOTÃO LUPA / "X"
-  // ==========================================================================
   function atualizarIconeBusca() {
     if (!searchBtn) return;
     const searchIcon = searchBtn.querySelector("i");

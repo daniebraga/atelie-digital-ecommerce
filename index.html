@@ -4,9 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ateliê Digital | E-books de Artesanato</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&family=Nunito:wght@500;700&display=swap"
       rel="stylesheet"
@@ -16,6 +13,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
   </head>
 
   <body>
@@ -63,6 +64,7 @@
             Descubra receitas detalhadas, moldes e guias práticos em PDF para
             crochê, bordado, cerâmica e papelaria.
           </p>
+          <a href="#vitrine" class="btn-primario">Ver Produtos</a>
         </div>
       </section>
 
@@ -90,14 +92,107 @@
         <div id="grid-produtos" class="grid-produtos"></div>
       </section>
     </main>
+    <div id="cart-modal" class="cart-modal-overlay" aria-hidden="true">
+      <aside class="cart-drawer" role="dialog" aria-label="Carrinho de Compras">
+        <div class="cart-header">
+          <div class="cart-title-wrapper">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <h2>Seu Carrinho</h2>
+          </div>
+          <button
+            id="close-cart-btn"
+            class="btn-close-cart"
+            aria-label="Fechar Carrinho"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div id="cart-items-list" class="cart-body"></div>
+
+        <div class="cart-footer">
+          <div class="cart-subtotal">
+            <span>Total:</span>
+            <strong id="cart-total-price">R$ 0,00</strong>
+          </div>
+          <button class="btn-checkout" onclick="processCheckout()">
+            Finalizar Compra
+          </button>
+        </div>
+      </aside>
+    </div>
 
     <footer class="rodape">
-      <div class="container">
-        <p>&copy; 2026 Ateliê Digital. Feito com carinho.</p>
+      <div class="container rodape-container">
+        <!-- Coluna 1: Marca e Contato -->
+        <div class="rodape-coluna">
+          <h3 class="rodape-logo">Ateliê Digital</h3>
+          <p class="rodape-descricao">
+            Inspiração feita à mão. Receitas, moldes e guias práticos em PDF
+            para criar com amor.
+          </p>
+          <p class="rodape-contato">
+            <i class="fa-regular fa-envelope"></i> contato@ateliedigital.com.br
+          </p>
+        </div>
+
+        <!-- Coluna 2: Navegação Rápida -->
+        <div class="rodape-coluna">
+          <h4>Categorias</h4>
+          <ul>
+            <li><a href="#croche">Crochê</a></li>
+            <li><a href="#bordado">Bordado</a></li>
+            <li><a href="#ceramica">Cerâmica</a></li>
+            <li><a href="#papelaria">Papelaria</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Suporte e Institucional -->
+        <div class="rodape-coluna">
+          <h4>Atendimento</h4>
+          <ul>
+            <li><a href="#">Central de Ajuda</a></li>
+            <li><a href="#">Como Baixar os PDFs</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4: Redes Sociais -->
+        <div class="rodape-coluna">
+          <h4>Siga o Ateliê</h4>
+          <div class="redes-sociais">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://pinterest.com"
+              target="_blank"
+              aria-label="Pinterest"
+            >
+              <i class="fa-brands fa-pinterest-p"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copia e Direitos Autorais -->
+      <div class="rodape-bottom">
+        <div class="container">
+          <p>&copy; 2026 Ateliê Digital. Feito com carinho para artesãs.</p>
+        </div>
       </div>
     </footer>
-
-    <script src="js/products.js"></script>
-    <script src="js/main.js"></script>
   </body>
 </html>
