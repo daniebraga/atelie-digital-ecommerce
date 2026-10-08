@@ -14,9 +14,6 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
-    <script src="js/products.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/cart.js"></script>
   </head>
 
   <body>
@@ -48,9 +45,14 @@
               <i class="fa-regular fa-sun icone-sol"></i>
               <i class="fa-regular fa-moon icone-lua"></i>
             </button>
-            <a href="#carrinho" class="btn-icone" aria-label="Ver Carrinho">
+            <button
+              type="button"
+              class="btn-icone"
+              aria-label="Ver Carrinho"
+              onclick="openCartModal()"
+            >
               <i class="fa-solid fa-cart-shopping"></i>
-            </a>
+            </button>
           </div>
         </nav>
       </div>
@@ -92,6 +94,7 @@
         <div id="grid-produtos" class="grid-produtos"></div>
       </section>
     </main>
+
     <div id="cart-modal" class="cart-modal-overlay" aria-hidden="true">
       <aside class="cart-drawer" role="dialog" aria-label="Carrinho de Compras">
         <div class="cart-header">
@@ -103,6 +106,7 @@
             id="close-cart-btn"
             class="btn-close-cart"
             aria-label="Fechar Carrinho"
+            onclick="closeCartModal()"
           >
             <i class="fa-solid fa-xmark"></i>
           </button>
@@ -123,8 +127,7 @@
     </div>
 
     <footer class="rodape">
-      <div class="container rodape-container">
-        <!-- Coluna 1: Marca e Contato -->
+      <div class="rodape-container">
         <div class="rodape-coluna">
           <h3 class="rodape-logo">Ateliê Digital</h3>
           <p class="rodape-descricao">
@@ -136,7 +139,6 @@
           </p>
         </div>
 
-        <!-- Coluna 2: Navegação Rápida -->
         <div class="rodape-coluna">
           <h4>Categorias</h4>
           <ul>
@@ -147,7 +149,6 @@
           </ul>
         </div>
 
-        <!-- Coluna 3: Suporte e Institucional -->
         <div class="rodape-coluna">
           <h4>Atendimento</h4>
           <ul>
@@ -158,7 +159,6 @@
           </ul>
         </div>
 
-        <!-- Coluna 4: Redes Sociais -->
         <div class="rodape-coluna">
           <h4>Siga o Ateliê</h4>
           <div class="redes-sociais">
@@ -187,12 +187,15 @@
         </div>
       </div>
 
-      <!-- Copia e Direitos Autorais -->
       <div class="rodape-bottom">
         <div class="container">
           <p>&copy; 2026 Ateliê Digital. Feito com carinho para artesãs.</p>
         </div>
       </div>
     </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
   </body>
 </html>

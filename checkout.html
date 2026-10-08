@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout | Ateliê Digital</title>
+    <title>Ateliê Digital | Finalizar Compra</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&family=Nunito:wght@500;700&display=swap"
       rel="stylesheet"
@@ -13,156 +13,97 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
-    <script src="js/products.js"></script>
-    <script src="js/cart.js"></script>
+    <link rel="stylesheet" href="css/responsive.css">
   </head>
 
   <body>
     <header class="cabecalho">
       <div class="container nav-container">
         <a href="index.html" class="logo">Ateliê Digital</a>
-        <a href="index.html" class="btn-voltar-loja">
+        <a href="index.html" class="btn-voltar">
           <i class="fa-solid fa-arrow-left"></i> Voltar à Loja
         </a>
       </div>
     </header>
 
-    <main class="container checkout-container">
-      <h1 class="titulo-secao">Finalizar Pedido</h1>
+    <main class="container">
+      <form id="checkout-form" class="checkout-grid">
+        <div class="checkout-left">
+          <div class="checkout-section">
+            <h3><i class="fa-regular fa-user"></i> Dados Pessoais</h3>
+            <div class="form-group">
+              <label for="nome">Nome Completo</label>
+              <input type="text" id="nome" required placeholder="Seu nome" />
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail para entrega dos PDFs</label>
+              <input
+                type="email"
+                id="email"
+                required
+                placeholder="seu@email.com"
+              />
+            </div>
+          </div>
 
-      <div class="checkout-grid">
-        <section class="checkout-form-section">
-          <form id="checkout-form">
-            <div class="checkout-card">
-              <h2><i class="fa-regular fa-user"></i> 1. Dados Pessoais</h2>
-              <p class="form-help-text">
-                Seus e-books em PDF serão enviados para o e-mail informado
-                abaixo.
+          <div class="checkout-section">
+            <h3>
+              <i class="fa-regular fa-credit-card"></i> Forma de Pagamento
+            </h3>
+            <div class="pagamento-options">
+              <label class="pagamento-option active">
+                <input
+                  type="radio"
+                  name="forma-pagamento"
+                  value="pix"
+                  checked
+                />
+                <span><i class="fa-brands fa-pix"></i> Pix</span>
+              </label>
+              <label class="pagamento-option">
+                <input type="radio" name="forma-pagamento" value="cartao" />
+                <span><i class="fa-regular fa-credit-card"></i> Cartão</span>
+              </label>
+            </div>
+
+            <div id="painel-pix" class="painel-pagamento">
+              <p>
+                O QR Code Pix será gerado após clicar em confirmar pagamento.
               </p>
+            </div>
 
+            <div
+              id="painel-cartao"
+              class="painel-pagamento"
+              style="display: none"
+            >
               <div class="form-group">
-                <label for="nome">Nome Completo *</label>
-                <input
-                  type="text"
-                  id="nome"
-                  required
-                  placeholder="Digite seu nome completo"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="email">E-mail para Recebimento *</label>
-                <input
-                  type="email"
-                  id="email"
-                  required
-                  placeholder="seuemail@exemplo.com"
-                />
+                <label>Número do Cartão</label>
+                <input type="text" placeholder="0000 0000 0000 0000" />
               </div>
             </div>
 
-            <div class="checkout-card">
-              <h2>
-                <i class="fa-regular fa-credit-card"></i> 2. Forma de Pagamento
-              </h2>
-
-              <div class="pagamento-options">
-                <label class="pagamento-option active">
-                  <input
-                    type="radio"
-                    name="forma-pagamento"
-                    value="pix"
-                    checked
-                  />
-                  <i class="fa-brands fa-pix"></i> Pix (Aprovação Imediata)
-                </label>
-                <label class="pagamento-option">
-                  <input type="radio" name="forma-pagamento" value="cartao" />
-                  <i class="fa-solid fa-credit-card"></i> Cartão de Crédito
-                </label>
-              </div>
-
-              <div id="painel-pix" class="painel-pagamento">
-                <div class="pix-info">
-                  <i class="fa-brands fa-pix pix-icon-big"></i>
-                  <p>
-                    O código QR e a chave de cópia serão gerados após clicar em
-                    <strong>Confirmar Pedido</strong>.
-                  </p>
-                  <span class="badge-rapido"
-                    ><i class="fa-solid fa-bolt"></i> Receba o e-book em
-                    instantes no e-mail!</span
-                  >
-                </div>
-              </div>
-
-              <div
-                id="painel-cartao"
-                class="painel-pagamento"
-                style="display: none"
-              >
-                <div class="form-group">
-                  <label for="num-cartao">Número do Cartão</label>
-                  <input
-                    type="text"
-                    id="num-cartao"
-                    placeholder="0000 0000 0000 0000"
-                  />
-                </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="validade">Validade</label>
-                    <input type="text" id="validade" placeholder="MM/AA" />
-                  </div>
-                  <div class="form-group">
-                    <label for="cvv">CVV</label>
-                    <input type="text" id="cvv" placeholder="123" />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="nome-cartao">Nome no Cartão</label>
-                  <input
-                    type="text"
-                    id="nome-cartao"
-                    placeholder="Como impresso no cartão"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <button type="submit" class="btn-checkout-submit">
-              Confirmar e Pagar
+            <button type="submit" class="btn-checkout" style="margin-top: 20px">
+              Confirmar Pagamento
             </button>
-          </form>
-        </section>
+          </div>
+        </div>
 
-        <aside class="checkout-summary-section">
-          <div class="checkout-card summary-card">
-            <h2>Resumo do Pedido</h2>
-            <div id="checkout-items-list" class="summary-items"></div>
-
-            <div class="summary-divider"></div>
-
-            <div class="summary-total-row">
+        <div class="checkout-right">
+          <div class="summary-card">
+            <h3>Resumo do Pedido</h3>
+            <div id="checkout-items-list"></div>
+            <div class="cart-subtotal" style="margin-top: 15px">
               <span>Total:</span>
               <strong id="checkout-total-price">R$ 0,00</strong>
             </div>
-
-            <div class="garantia-box">
-              <i class="fa-solid fa-shield-halved"></i>
-              <p>
-                Ambiente seguro e arquivos entregues diretamente no seu e-mail.
-              </p>
-            </div>
           </div>
-        </aside>
-      </div>
+        </div>
+      </form>
     </main>
 
     <footer class="rodape">
-      <div class="container rodape-container">
-        <!-- Coluna 1: Marca e Contato -->
+      <div class="rodape-container">
         <div class="rodape-coluna">
           <h3 class="rodape-logo">Ateliê Digital</h3>
           <p class="rodape-descricao">
@@ -174,7 +115,6 @@
           </p>
         </div>
 
-        <!-- Coluna 2: Navegação Rápida -->
         <div class="rodape-coluna">
           <h4>Categorias</h4>
           <ul>
@@ -185,7 +125,6 @@
           </ul>
         </div>
 
-        <!-- Coluna 3: Suporte e Institucional -->
         <div class="rodape-coluna">
           <h4>Atendimento</h4>
           <ul>
@@ -196,7 +135,6 @@
           </ul>
         </div>
 
-        <!-- Coluna 4: Redes Sociais -->
         <div class="rodape-coluna">
           <h4>Siga o Ateliê</h4>
           <div class="redes-sociais">
@@ -225,12 +163,14 @@
         </div>
       </div>
 
-      <!-- Copia e Direitos Autorais -->
       <div class="rodape-bottom">
         <div class="container">
           <p>&copy; 2026 Ateliê Digital. Feito com carinho para artesãs.</p>
         </div>
       </div>
     </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
   </body>
 </html>

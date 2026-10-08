@@ -4,12 +4,8 @@ let cart = [];
 document.addEventListener("DOMContentLoaded", () => {
   loadCartFromStorage();
   updateCartBadge();
-
-  // Inicializa o modal se estiver na página principal (index.html)
   setupCartModalEvents();
   renderCartItems();
-
-  // Inicializa a página de checkout se estiver nela (checkout.html)
   setupCheckoutPage();
 });
 
@@ -19,7 +15,6 @@ function loadCartFromStorage() {
     try {
       cart = JSON.parse(storedCart);
     } catch (error) {
-      console.error("Erro ao carregar o carrinho do localStorage:", error);
       cart = [];
     }
   } else {
@@ -32,15 +27,16 @@ function saveCartToStorage() {
 }
 
 window.addToCart = function (productId) {
-  if (typeof products === "undefined") {
-    console.error("products.js não foi carregado!");
-    return;
-  }
+  if (typeof products === "undefined") return;
 
-  const product = products.find((p) => p.id === productId);
+  const idNumerico = Number(productId);
+  const product = products.find((p) => Number(p.id) === idNumerico);
+
   if (!product) return;
 
-  const existingIndex = cart.findIndex((item) => item.id === productId);
+  const existingIndex = cart.findIndex(
+    (item) => Number(item.id) === idNumerico,
+  );
 
   if (existingIndex > -1) {
     cart[existingIndex].quantity += 1;
@@ -58,11 +54,12 @@ window.addToCart = function (productId) {
   saveCartToStorage();
   updateCartBadge();
   renderCartItems();
-  openCartModal();
+  window.openCartModal();
 };
 
 window.removeFromCart = function (productId) {
-  cart = cart.filter((item) => item.id !== productId);
+  const idNumerico = Number(productId);
+  cart = cart.filter((item) => Number(item.id) !== idNumerico);
   saveCartToStorage();
   updateCartBadge();
   renderCartItems();
@@ -70,7 +67,8 @@ window.removeFromCart = function (productId) {
 };
 
 window.updateQuantity = function (productId, delta) {
-  const itemIndex = cart.findIndex((item) => item.id === productId);
+  const idNumerico = Number(productId);
+  const itemIndex = cart.findIndex((item) => Number(item.id) === idNumerico);
 
   if (itemIndex > -1) {
     cart[itemIndex].quantity += delta;
@@ -95,22 +93,27 @@ window.clearCart = function () {
 };
 
 function updateCartBadge() {
-  const cartIconLink = document.querySelector('a[href="#carrinho"]');
-  if (!cartIconLink) return;
+  const cartIconLinks = document.querySelectorAll(
+    'a[href="#carrinho"], .btn-icone[aria-label="Ver Carrinho"]',
+  );
+  const totalItems = cart.reduce(
+    (acc, item) => acc + (Number(item.quantity) || 0),
+    0,
+  );
 
-  let badge = cartIconLink.querySelector(".cart-badge");
-  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-
-  if (totalItems > 0) {
-    if (!badge) {
-      badge = document.createElement("span");
-      badge.className = "cart-badge";
-      cartIconLink.appendChild(badge);
+  cartIconLinks.forEach((link) => {
+    let badge = link.querySelector(".cart-badge");
+    if (totalItems > 0) {
+      if (!badge) {
+        badge = document.createElement("span");
+        badge.className = "cart-badge";
+        link.appendChild(badge);
+      }
+      badge.textContent = totalItems;
+    } else if (badge) {
+      badge.remove();
     }
-    badge.textContent = totalItems;
-  } else if (badge) {
-    badge.remove();
-  }
+  });
 }
 
 function renderCartItems() {
@@ -120,6 +123,7 @@ function renderCartItems() {
   if (!cartListContainer) return;
 
   cartListContainer.innerHTML = "";
+  cart = cart.filter((item) => item && item.id && item.price);
 
   if (cart.length === 0) {
     cartListContainer.innerHTML = `
@@ -135,7 +139,9 @@ function renderCartItems() {
   let totalSum = 0;
 
   cart.forEach((item) => {
-    const itemTotal = item.price * item.quantity;
+    const price = Number(item.price) || 0;
+    const qty = Number(item.quantity) || 1;
+    const itemTotal = price * qty;
     totalSum += itemTotal;
 
     const formattedPrice = itemTotal.toLocaleString("pt-BR", {
@@ -151,7 +157,7 @@ function renderCartItems() {
           <span class="cart-item-price">${formattedPrice}</span>
           <div class="cart-item-controls">
             <button class="btn-qty" onclick="updateQuantity(${item.id}, -1)">-</button>
-            <span class="cart-item-qty">${item.quantity}</span>
+            <span class="cart-item-qty">${qty}</span>
             <button class="btn-qty" onclick="updateQuantity(${item.id}, 1)">+</button>
           </div>
         </div>
@@ -178,38 +184,44 @@ window.processCheckout = function () {
   window.location.href = "checkout.html";
 };
 
-function openCartModal() {
+window.openCartModal = function () {
   const cartModal = document.getElementById("cart-modal");
   if (cartModal) {
     cartModal.classList.add("open");
+    cartModal.setAttribute("aria-hidden", "false");
     renderCartItems();
   }
-}
+};
 
-function closeCartModal() {
+window.closeCartModal = function () {
   const cartModal = document.getElementById("cart-modal");
-  if (cartModal) cartModal.classList.remove("open");
-}
+  if (cartModal) {
+    cartModal.classList.remove("open");
+    cartModal.setAttribute("aria-hidden", "true");
+  }
+};
 
 function setupCartModalEvents() {
-  const cartIconLink = document.querySelector('a[href="#carrinho"]');
+  const cartButtons = document.querySelectorAll(
+    'a[href="#carrinho"], .btn-icone[aria-label="Ver Carrinho"]',
+  );
   const closeBtn = document.getElementById("close-cart-btn");
   const cartModal = document.getElementById("cart-modal");
 
-  if (cartIconLink) {
-    cartIconLink.addEventListener("click", (e) => {
+  cartButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
       e.preventDefault();
-      openCartModal();
+      window.openCartModal();
     });
-  }
+  });
 
   if (closeBtn) {
-    closeBtn.addEventListener("click", closeCartModal);
+    closeBtn.addEventListener("click", window.closeCartModal);
   }
 
   if (cartModal) {
     cartModal.addEventListener("click", (e) => {
-      if (e.target === cartModal) closeCartModal();
+      if (e.target === cartModal) window.closeCartModal();
     });
   }
 }
@@ -234,7 +246,7 @@ function renderCheckoutSummary() {
   let totalSum = 0;
 
   cart.forEach((item) => {
-    const itemTotal = item.price * item.quantity;
+    const itemTotal = (Number(item.price) || 0) * (Number(item.quantity) || 1);
     totalSum += itemTotal;
 
     const formattedPrice = itemTotal.toLocaleString("pt-BR", {
