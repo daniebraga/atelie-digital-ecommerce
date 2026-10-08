@@ -76,6 +76,7 @@ Não é preciso instalar dependências.
    ```bash
    cd nome-do-repositorio
    ```
+````
 
 ## Possíveis melhorias
 
