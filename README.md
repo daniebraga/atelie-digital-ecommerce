@@ -75,6 +75,7 @@ Não é preciso instalar dependências.
    ```bash
    cd nome-do-repositorio
    ```
+3. Abra o projeto com um servidor local. A forma mais simples é a extensão **Live Server** do VS Code: clique com o botão direito em `index.html` e escolha **Open with Live Server**.
 
 ## Possíveis melhorias
 
