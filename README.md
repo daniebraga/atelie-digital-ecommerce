@@ -22,9 +22,9 @@ O **Ateliê Digital** foi desenvolvido com o objetivo de oferecer uma experiênc
 - **Busca em Tempo Real:** Filtro instantâneo de e-books por título, descrição ou categoria.
 - **Filtro por Categorias:** Navegação rápida entre _Crochê_, _Bordado_, _Cerâmica_ e _Papelaria_.
 - **Carrinho de Compras Flutuante (Drawer):**
-- Adição e remoção de itens.
-- Ajuste de quantidade dinâmico.
-- Cálculo automático do valor total.
+  - Adição e remoção de itens.
+  - Ajuste de quantidade dinâmico.
+  - Cálculo automático do valor total.
 - **Layout Totalmente Responsivo:** Design otimizado para celulares, tablets e desktops.
 - **Fluxo de Checkout:** Tela de finalização de pedido simulando opções de pagamento (PIX, Cartão).
 
