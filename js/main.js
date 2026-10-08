@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (currentCategory !== "destaque" && currentCategory !== "todos") {
       if (heroSection) heroSection.style.display = "none";
 
-      // Atualiza o título da seção com o nome da categoria formatado
       if (tituloSecao) {
         tituloSecao.textContent =
           currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
@@ -145,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", function (event) {
       event.preventDefault();
 
-      const destinoId = this.getAttribute("href"); // Ex: "#croche"
+      const destinoId = this.getAttribute("href");
       const categoria = destinoId.replace("#", "").toLowerCase();
 
       currentSearchQuery = "";
@@ -211,17 +210,5 @@ document.addEventListener("DOMContentLoaded", () => {
         searchInput.focus();
       }
     });
-  }
-});
-
-gridProdutos.addEventListener("click", (event) => {
-  if (event.target.classList.contains(btn - add - cart)) {
-    const productId = Number(event.target.dataset.id);
-  }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  if (typeof products !== "undefined") {
-    renderProducts(products);
   }
 });
