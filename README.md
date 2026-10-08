@@ -6,30 +6,31 @@
 
 - **Site:** `https://atelie-digital.vercel.app`
 
-![Home](assets/img/home.png)
-![Checkout](assets/img/checkout.png)
+| Home                           | Checkout                               |
+| ------------------------------ | -------------------------------------- |
+| ![Home](./assets/img/home.png) | ![Checkout](./assets/img/checkout.png) |
 
-## 🎨 Sobre o Projeto
+## Sobre o Projeto
 
 O **Ateliê Digital** foi desenvolvido com o objetivo de oferecer uma experiência de compra fluida, aconchegante e intuitiva para artesãs e entusiastas de trabalhos manuais. A aplicação conta com catálogo interativo, busca dinâmica por palavras-chave, filtragem por categorias, sistema de carrinho de compras em tempo real e suporte a tema claro/escuro.
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
-- 🌓 **Tema Claro e Escuro (Dark Mode):** Alternância simples de tema com salvamento da preferência no `localStorage`.
-- 🔍 **Busca em Tempo Real:** Filtro instantâneo de e-books por título, descrição ou categoria.
-- 📂 **Filtro por Categorias:** Navegação rápida entre _Crochê_, _Bordado_, _Cerâmica_ e _Papelaria_.
-- 🛒 **Carrinho de Compras Flutuante (Drawer):**
+- **Tema Claro e Escuro (Dark Mode):** Alternância simples de tema com salvamento da preferência no `localStorage`.
+- **Busca em Tempo Real:** Filtro instantâneo de e-books por título, descrição ou categoria.
+-  **Filtro por Categorias:** Navegação rápida entre _Crochê_, _Bordado_, _Cerâmica_ e _Papelaria_.
+-  **Carrinho de Compras Flutuante (Drawer):**
   - Adição e remoção de itens.
   - Ajuste de quantidade dinâmico.
   - Cálculo automático do valor total.
-- 📱 **Layout Totalmente Responsivo:** Design otimizado para celulares, tablets e desktops.
-- 💳 **Fluxo de Checkout:** Tela de finalização de pedido simulando opções de pagamento (PIX, Cartão).
+- **Layout Totalmente Responsivo:** Design otimizado para celulares, tablets e desktops.
+- **Fluxo de Checkout:** Tela de finalização de pedido simulando opções de pagamento (PIX, Cartão).
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 O projeto foi construído utilizando tecnologias fundamentais da web (vanilla), sem dependência de frameworks externos:
 
@@ -44,7 +45,7 @@ O projeto foi construído utilizando tecnologias fundamentais da web (vanilla), 
 
 ---
 
-## 📁 Estrutura de Pastas
+## Estrutura de Pastas
 
 ````text
 atelie-digital/
