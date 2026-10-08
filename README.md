@@ -41,7 +41,7 @@ O projeto foi construído utilizando tecnologias fundamentais da web (vanilla), 
   - Media Queries para responsividade.
 - **JavaScript (ES6+):** Manipulação dinâmica do DOM, gerenciamento de estado do carrinho e integração com `localStorage`.
 - **Font Awesome 6:** Ícones vetoriais.
-- **Google Fonts:** Tipografia (_Playfair Display_, _Lato_ e _Nunito_).cd atelie-digital
+- **Google Fonts:** Tipografia (_Playfair Display_, _Lato_ e _Nunito_)
 
 ---
 
@@ -95,4 +95,3 @@ Não é preciso instalar dependências.
 ## Licença
 
 Este projeto foi desenvolvido para fins de estudo.
-````
