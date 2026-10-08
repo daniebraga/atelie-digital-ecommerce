@@ -20,11 +20,11 @@ O **Ateliê Digital** foi desenvolvido com o objetivo de oferecer uma experiênc
 
 - **Tema Claro e Escuro (Dark Mode):** Alternância simples de tema com salvamento da preferência no `localStorage`.
 - **Busca em Tempo Real:** Filtro instantâneo de e-books por título, descrição ou categoria.
--  **Filtro por Categorias:** Navegação rápida entre _Crochê_, _Bordado_, _Cerâmica_ e _Papelaria_.
--  **Carrinho de Compras Flutuante (Drawer):**
-  - Adição e remoção de itens.
-  - Ajuste de quantidade dinâmico.
-  - Cálculo automático do valor total.
+- **Filtro por Categorias:** Navegação rápida entre _Crochê_, _Bordado_, _Cerâmica_ e _Papelaria_.
+- **Carrinho de Compras Flutuante (Drawer):**
+- Adição e remoção de itens.
+- Ajuste de quantidade dinâmico.
+- Cálculo automático do valor total.
 - **Layout Totalmente Responsivo:** Design otimizado para celulares, tablets e desktops.
 - **Fluxo de Checkout:** Tela de finalização de pedido simulando opções de pagamento (PIX, Cartão).
 
@@ -47,7 +47,7 @@ O projeto foi construído utilizando tecnologias fundamentais da web (vanilla), 
 
 ## Estrutura de Pastas
 
-````text
+```text
 atelie-digital/
 ├── css/
 │   ├── style.css          # Estilos globais, temas e layout base
@@ -59,6 +59,7 @@ atelie-digital/
 ├── index.html             # Página inicial (vitrine e carrinho)
 ├── checkout.html          # Página de finalização de compra
 └── README.md              # Documentação do projeto
+```
 
 ## Como executar
 
@@ -67,6 +68,8 @@ Não é preciso instalar dependências.
 1. Clone o repositório:
    ```bash
    git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   ```
+
 ````
 
 2. Entre na pasta do projeto:
@@ -85,9 +88,10 @@ Não é preciso instalar dependências.
 
 **Desenvolvido por Danielle Braga 🌸**
 
-- GitHub: [@mrjonc](https://github.com/daniebraga)
-- LinkedIn: [Jonathan Laureano Lima](https://www.linkedin.com/in/daniellebbraga/)
+- GitHub: [@daniebraga](https://github.com/daniebraga)
+- LinkedIn: [Danielle Braga](https://www.linkedin.com/in/daniellebbraga/)
 
 ## Licença
 
 Este projeto foi desenvolvido para fins de estudo.
+````
