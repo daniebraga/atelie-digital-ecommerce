@@ -66,17 +66,15 @@ atelie-digital/
 Não é preciso instalar dependências.
 
 1. Clone o repositório:
+
    ```bash
    git clone https://github.com/seu-usuario/nome-do-repositorio.git
    ```
-
-````
 
 2. Entre na pasta do projeto:
    ```bash
    cd nome-do-repositorio
    ```
-````
 
 ## Possíveis melhorias
 
